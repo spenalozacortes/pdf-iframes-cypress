@@ -6,17 +6,17 @@ const { allureCypress } = require("allure-cypress/reporter");
 
 async function setupNodeEvents(on, config) {
   on('task', {
-    readPdf(pdfPath) {
+    readPdf(pdfPath: string) {
       return new Promise(resolve => {
         const filePath = path.resolve(pdfPath);
         const dataBuffer = fs.readFileSync(filePath);
-        pdf(dataBuffer).then(data => resolve(data));
+        pdf(dataBuffer).then((data) => resolve(data));
       });
     }
   });
 
   on('task', {
-    deletePdf(pdfPath) {
+    deletePdf(pdfPath: string) {
       const filePath = path.resolve(pdfPath);
       fs.unlink(filePath, error => {
         if (error) {

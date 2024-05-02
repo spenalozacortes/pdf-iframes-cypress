@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "types": ["cypress", "node"]
+  },
+  "include": ["**/*.ts", "support/commands.ts", "e2e/pdf.cy.ts", "support/locators.ts", "support/paths.ts", "support/sharedFilesTestData.ts"]
+}
