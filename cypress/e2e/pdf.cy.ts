@@ -3,7 +3,7 @@
 import { urls } from "../config/urls";
 import { sharedFilesLocators, freeTestDataLocators } from "../support/locators";
 import { sharedFilesPaths, freeTestDataPaths } from "../support/paths";
-import { sharedFilesTestData } from "../support/sharedFilesTestData";
+import { sharedFilesTestData } from "../support/testData";
 
 describe('PDF tests', function() {
     it('test 1', function() {

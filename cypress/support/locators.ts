@@ -9,8 +9,6 @@ export const freeTestDataLocators = {
 };
 
 export const demoQaLocators = {
-    alertsFramesWindowsCard: 'Alerts, Frame & Windows',
-    framesLink: 'Frames',
     framesWrapper: '#framesWrapper',
     frame1: '#frame1',
     frameHeading: '#sampleHeading',
