@@ -4,7 +4,6 @@ export const sharedFilesLocators = {
 
 export const freeTestDataLocators = {
     downloadSection: '.elementor-inner-section',
-    download100Kb: '100 KB',
     downloadButton: '.elementor-button'
 };
 

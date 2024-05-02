@@ -7,3 +7,7 @@ export const demoQaTestData = {
     card: 'Alerts, Frame & Windows',
     link: 'Frames'
 };
+
+export const freeTestData = {
+    button: '100 KB'
+};
