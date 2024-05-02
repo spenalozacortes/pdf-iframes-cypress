@@ -2,6 +2,7 @@ const { defineConfig } = require("cypress");
 const fs = require('fs');
 const pdf = require('pdf-parse');
 const path = require('path');
+const { allureCypress } = require("allure-cypress/reporter");
 
 async function setupNodeEvents(on, config) {
   on('task', {
@@ -28,6 +29,8 @@ async function setupNodeEvents(on, config) {
       return null;
     }
   });
+
+  allureCypress(on);
 
   return config;
 }
