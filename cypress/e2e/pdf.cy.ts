@@ -12,18 +12,18 @@ describe('PDF tests', function() {
         cy.visit(urls.sharedFiles);
         homePageStepsShared.downloadPdf();
         cy.task('readPdf', sharedFilesPaths.samplePdf).then(data => {
-            const numPages = data.numpages;
-            expect(numPages).to.eq(sharedFilesTestData.numPages);
+            expect(data.numpages).to.eq(sharedFilesTestData.numPages);
             expect(data.text).to.contain(sharedFilesTestData.introductionBlock);
         });
     });
 
-    it.only('test 2', function () {
+    it('test 2', function () {
         cy.setAllureMetadata('Free Test Data PDF test', 'This test checks that a PDF is not empty.', urls.freeTestData);
         cy.visit(urls.freeTestData);
         homePageStepsFree.downloadPdf(freeTestData.button);
-        cy.task('readPdf', freeTestDataPaths.pdf100Kb).then(data => {
+        cy.task('readPdf', freeTestDataPaths.pdf100Kb).then(data => {            
             expect(data.text).to.not.be.empty;
+            cy.sumTableColumn(data.text, freeTestData.column, freeTestData.beginMarker, freeTestData.endMarker).then(sum => expect(sum).to.equal(freeTestData.sum));
         });
     });
 
