@@ -1,4 +1,4 @@
-import { demoQaLocators } from "../../support/locators";
+import { locators } from "./locators";
 
 class FramesPage {
     getLink(link: string) {
@@ -6,15 +6,15 @@ class FramesPage {
     }
 
     get framesWrapper() {
-        return cy.get(demoQaLocators.framesWrapper);
+        return cy.get(locators.framesWrapper);
     }
 
     get frameHeading1() {
-        return cy.iframe(demoQaLocators.frame1).find(demoQaLocators.frameHeading);
+        return cy.iframe(locators.frame1).find(locators.frameHeading);
     }
 
     get frameHeading2() {
-        return cy.iframe(demoQaLocators.frame2).find(demoQaLocators.frameHeading);
+        return cy.iframe(locators.frame2).find(locators.frameHeading);
     }
 }
 

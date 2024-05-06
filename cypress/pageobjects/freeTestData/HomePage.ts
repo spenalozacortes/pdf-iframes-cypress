@@ -1,8 +1,8 @@
-import { freeTestDataLocators } from "../../support/locators";
+import { locators } from "./locators";
 
 class HomePage {
     getDownloadButton(button: string) {
-        return cy.contains(freeTestDataLocators.downloadSection, button).find(freeTestDataLocators.downloadButton);
+        return cy.contains(locators.downloadSection, button).find(locators.downloadButton);
     }
 }
 

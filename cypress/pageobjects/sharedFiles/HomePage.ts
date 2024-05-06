@@ -1,8 +1,8 @@
-import { sharedFilesLocators } from "../../support/locators";
+import { locators } from "./locators";
 
 class HomePage {
     get downloadButton() {
-        return cy.get(sharedFilesLocators.downloadButton);
+        return cy.get(locators.downloadButton);
     }
 }
 
