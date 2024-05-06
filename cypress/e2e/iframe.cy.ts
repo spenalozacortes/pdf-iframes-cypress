@@ -1,7 +1,3 @@
-/// <reference types = "Cypress" />
-
-import 'cypress-iframe';
-
 import { urls } from '../config/urls';
 import { demoQaTestData } from '../support/testData';
 import { homePage } from '../pageobjects/demoQa/HomePage';

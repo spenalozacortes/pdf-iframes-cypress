@@ -1,5 +1,3 @@
-/// <reference types = "Cypress" />
-
 import { urls } from "../config/urls";
 import { sharedFilesPaths, freeTestDataPaths } from "../support/paths";
 import { sharedFilesTestData, freeTestData } from "../support/testData";
