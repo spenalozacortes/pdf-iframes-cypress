@@ -1,22 +1,22 @@
-const { defineConfig } = require("cypress");
-const fs = require('fs');
-const pdf = require('pdf-parse');
-const path = require('path');
-const { allureCypress } = require("allure-cypress/reporter");
+import { defineConfig } from "cypress";
+import * as fs from 'fs';
+import * as path from 'path';
+import pdfParse from 'pdf-parse';
+import { allureCypress } from "allure-cypress/reporter";
 
 async function setupNodeEvents(on, config) {
   on('task', {
-    readPdf(pdfPath: string) {
+    readPdf(pdfPath) {
       return new Promise(resolve => {
         const filePath = path.resolve(pdfPath);
         const dataBuffer = fs.readFileSync(filePath);
-        pdf(dataBuffer).then((data) => resolve(data));
+        pdfParse(dataBuffer).then((data) => resolve(data));
       });
     }
   });
 
   on('task', {
-    deletePdf(pdfPath: string) {
+    deletePdf(pdfPath) {
       const filePath = path.resolve(pdfPath);
       fs.unlink(filePath, error => {
         if (error) {

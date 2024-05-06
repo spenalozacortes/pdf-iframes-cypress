@@ -9,14 +9,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-  },
   "devDependencies": {
-    "cypress": "^13.8.1",
-    "pdf-parse": "^1.1.1",
+    "@types/pdf-parse": "^1.1.4",
     "allure-commandline": "^2.29.0",
     "allure-cypress": "^2.15.1",
+    "cypress": "^13.8.1",
     "cypress-iframe": "^1.0.1",
+    "pdf-parse": "^1.1.1",
     "typescript": "^5.4.5"
   }
 }
