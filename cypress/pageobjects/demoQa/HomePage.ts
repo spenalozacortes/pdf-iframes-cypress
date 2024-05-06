@@ -1,7 +1,7 @@
 class HomePage {
 
-    getCard(card: string) {
-        return cy.contains(card).parent();
+    clickCard(card: string) {
+        cy.contains(card).parent().click();
     }
 }
 

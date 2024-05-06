@@ -1,8 +1,8 @@
 import { locators } from "./locators";
 
 class FramesPage {
-    getLink(link: string) {
-        return cy.contains(link);
+    clickLink(link: string) {
+        cy.contains(link).click();
     }
 
     get framesWrapper() {

@@ -11,8 +11,8 @@ describe('Iframe tests', function() {
     it('test 1', function() {
         cy.setAllureMetadata('Frames test', 'This test checks the texts in two different frames.', urls.demoQa);
         cy.visit(urls.demoQa);
-        homePage.getCard(demoQaTestData.card).click();
-        framesPage.getLink(demoQaTestData.link).click();
+        homePage.clickCard(demoQaTestData.card);
+        framesPage.clickLink(demoQaTestData.link);
         framesPage.framesWrapper.should('exist');
         framesPage.frameHeading1.invoke('text').then(firstText => {
             framesPage.frameHeading2.invoke('text').should('eq', firstText);
