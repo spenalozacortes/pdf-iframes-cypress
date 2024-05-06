@@ -11,20 +11,16 @@ describe('PDF tests', function() {
         cy.setAllureMetadata('Shared Files PDF test', 'This test checks the number of pages and presence of content in a PDF.', urls.sharedFiles);
         cy.visit(urls.sharedFiles);
         homePageStepsShared.downloadPdf();
-        cy.task('readPdf', sharedFilesPaths.samplePdf).then(data => {
-            expect(data.numpages).to.eq(sharedFilesTestData.numPages);
-            expect(data.text).to.contain(sharedFilesTestData.introductionBlock);
-        });
+        cy.checkNumPages(sharedFilesPaths.samplePdf, sharedFilesTestData.numPages);
+        cy.checkContent(sharedFilesPaths.samplePdf, sharedFilesTestData.introductionBlock);
     });
 
     it('test 2', function () {
-        cy.setAllureMetadata('Free Test Data PDF test', 'This test checks that a PDF is not empty.', urls.freeTestData);
+        cy.setAllureMetadata('Free Test Data PDF test', 'This test checks that a PDF is not empty and the sum of a column in a table.', urls.freeTestData);
         cy.visit(urls.freeTestData);
         homePageStepsFree.downloadPdf(freeTestData.button);
-        cy.task('readPdf', freeTestDataPaths.pdf100Kb).then(data => {            
-            expect(data.text).to.not.be.empty;
-            cy.sumTableColumn(data.text, freeTestData.column, freeTestData.beginMarker, freeTestData.endMarker).should('eq', freeTestData.sum);
-        });
+        cy.checkNotEmpty(freeTestDataPaths.pdf100Kb);
+        cy.checkSumTableColumn(freeTestDataPaths.pdf100Kb, freeTestData.column, freeTestData.beginMarker, freeTestData.endMarker, freeTestData.sum);
     });
 
     after(() => {

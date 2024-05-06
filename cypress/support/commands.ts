@@ -6,8 +6,9 @@ Cypress.Commands.add('setAllureMetadata', (displayName, description, link) => {
     allure.link(link);
 });
 
-Cypress.Commands.add('sumTableColumn', (text, column, beginMarker, endMarker) => {
-    const lines = text.split('\n');
+Cypress.Commands.add('checkSumTableColumn', (pdfPath, column, beginMarker, endMarker, expectedSum) => {
+  cy.task('readPdf', pdfPath).then(data => {
+    const lines = data.text.split('\n');
     let sum = 0;
     let isTable = false;
     let tableProcessed = false;
@@ -30,5 +31,24 @@ Cypress.Commands.add('sumTableColumn', (text, column, beginMarker, endMarker) =>
       }
     });
 
-    return cy.wrap(sum);
+    expect(sum).to.eq(expectedSum);
+  });
+});
+
+Cypress.Commands.add('checkNumPages', (pdfPath, expectedPages) => {
+  cy.task('readPdf', pdfPath).then(data => {
+    expect(data.numpages).to.eq(expectedPages);
+  });
+});
+
+Cypress.Commands.add('checkContent', (pdfPath, expectedContent) => {
+  cy.task('readPdf', pdfPath).then(data => {
+    expect(data.text).to.contain(expectedContent);
+  });
+});
+
+Cypress.Commands.add('checkNotEmpty', (pdfPath) => {
+  cy.task('readPdf', pdfPath).then(data => {            
+    expect(data.text).to.not.be.empty;
+  });
 });
