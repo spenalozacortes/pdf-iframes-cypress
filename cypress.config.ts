@@ -20,10 +20,7 @@ async function setupNodeEvents(on, config) {
       const filePath = path.resolve(pdfPath);
       fs.unlink(filePath, error => {
         if (error) {
-          console.error('Error deleting PDF file:', error);
-        }
-        else {
-          console.log('PDF file deleted successfully.');
+          cy.log('Error deleting PDF');
         }
       });
       return null;
