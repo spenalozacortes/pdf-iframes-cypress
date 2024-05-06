@@ -23,7 +23,7 @@ describe('PDF tests', function() {
         homePageStepsFree.downloadPdf(freeTestData.button);
         cy.task('readPdf', freeTestDataPaths.pdf100Kb).then(data => {            
             expect(data.text).to.not.be.empty;
-            cy.sumTableColumn(data.text, freeTestData.column, freeTestData.beginMarker, freeTestData.endMarker).then(sum => expect(sum).to.equal(freeTestData.sum));
+            cy.sumTableColumn(data.text, freeTestData.column, freeTestData.beginMarker, freeTestData.endMarker).should('eq', freeTestData.sum);
         });
     });
 
