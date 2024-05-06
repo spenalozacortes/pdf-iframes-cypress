@@ -1,11 +1,11 @@
 import { freeTestDataPaths } from "../../support/paths";
 import { homePage } from "./HomePage";
 
-class HomePageSteps {
+class HomePageFreeSteps {
     downloadPdf(button: string) {
         homePage.getDownloadButton(button).click();
         cy.readFile(freeTestDataPaths.pdf100Kb); 
     }
 }
 
-export const homePageSteps = new HomePageSteps();
+export const homePageFreeSteps = new HomePageFreeSteps();

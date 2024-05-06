@@ -32,7 +32,7 @@ async function setupNodeEvents(on, config) {
   return config;
 }
 
-module.exports = defineConfig({
+export default defineConfig({
   e2e: {
     setupNodeEvents,
   },

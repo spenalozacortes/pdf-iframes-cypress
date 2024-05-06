@@ -1,11 +1,11 @@
 import { homePage } from "./HomePage";
 import { sharedFilesPaths } from "../../support/paths";
 
-class HomePageSteps {
+class HomePageSharedSteps {
     downloadPdf() {
         homePage.downloadButton.click();
         cy.readFile(sharedFilesPaths.samplePdf); // waiting for the file to be downloaded
     }
 }
 
-export const homePageSteps = new HomePageSteps();
+export const homePageSharedSteps = new HomePageSharedSteps();
